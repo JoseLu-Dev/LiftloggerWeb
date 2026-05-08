@@ -1,0 +1,17 @@
+{
+  "name": "contracts",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/contracts/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project contracts --web",
+  "targets": {
+    "generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "openapi-generator-cli generate -i libs/contracts/src/openapi/api.yaml -g typescript-angular -o libs/contracts/src/generated --additional-properties=fileNaming=kebab-case,stringEnums=true",
+        "cwd": "{workspaceRoot}"
+      }
+    }
+  }
+}
