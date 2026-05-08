@@ -1,0 +1,22 @@
+# Normalise all text files to LF in the repository
+* text=auto eol=lf
+
+# Windows scripts must stay CRLF
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# Binary — never diff or convert
+*.ico binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.otf binary
+*.zip binary
+*.jar binary
+*.class binary
+*.pdf binary
