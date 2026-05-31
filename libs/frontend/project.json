@@ -8,6 +8,21 @@
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint"
+    },
+    "storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/storybook/serve.mjs libs/frontend/.storybook 4400 web:build",
+        "cwd": "{workspaceRoot}"
+      }
+    },
+    "build-storybook": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/storybook/frontend"],
+      "options": {
+        "command": "node tools/storybook/build.mjs libs/frontend/.storybook dist/storybook/frontend web:build",
+        "cwd": "{workspaceRoot}"
+      }
     }
   }
 }
