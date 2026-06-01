@@ -39,6 +39,16 @@ nx serve mobile
 cd apps/backend && ./mvnw spring-boot:run
 ```
 
+## Storybook
+
+```bash
+# serve at http://localhost:4400
+pnpm nx run frontend:storybook
+
+# build static output → dist/storybook/frontend
+pnpm nx run frontend:build-storybook
+```
+
 ## Contract generation
 
 The full pipeline runs in two steps: backend generates the spec, then Nx generates the Angular client.
