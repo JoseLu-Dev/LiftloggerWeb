@@ -1,0 +1,66 @@
+.seg {
+  display: inline-flex;
+  padding: 4px;
+  background: var(--bg-1);
+  border-radius: var(--r-pill);
+}
+
+.seg button {
+  border: 0;
+  background: transparent;
+  color: var(--fg-2);
+  padding: 8px 16px;
+  border-radius: var(--r-pill);
+  font: var(--t-body-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background var(--dur-micro) var(--ease),
+    color var(--dur-micro) var(--ease);
+}
+
+.seg button.active {
+  background: var(--bg-3);
+  color: var(--fg-1);
+  box-shadow: var(--shadow-sm);
+}
+
+.seg button:hover:not(.active) { color: var(--fg-1); }
+
+.seg.brand button.active {
+  background: var(--blue-500);
+  color: #fff;
+  box-shadow: var(--glow-blue);
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.tab {
+  background: none;
+  border: 0;
+  padding: 12px 0;
+  color: var(--fg-2);
+  font: var(--t-body);
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  transition: color var(--dur-micro) var(--ease);
+}
+
+.tab.active { color: var(--fg-1); }
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--blue-500);
+  box-shadow: 0 0 12px var(--blue-glow-strong);
+}

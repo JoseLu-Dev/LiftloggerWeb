@@ -1,0 +1,78 @@
+/* Linear */
+.lin {
+  height: 8px;
+  background: var(--bg-2);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.lin .bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue-500), var(--blue-400));
+  border-radius: 999px;
+  box-shadow: 0 0 16px var(--blue-glow);
+  transition: width var(--dur-panel) var(--ease);
+}
+
+/* Ring */
+.ring-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ring {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+}
+
+.ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring .track {
+  fill: none;
+  stroke: var(--bg-2);
+  stroke-width: 6;
+}
+
+.ring .arc {
+  fill: none;
+  stroke: var(--blue-500);
+  stroke-width: 6;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px var(--blue-glow));
+  transition: stroke-dashoffset var(--dur-panel) var(--ease);
+}
+
+.ring .pct {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-1);
+  font: var(--t-stat-md);
+  font-variant-numeric: tabular-nums;
+}
+
+.meta-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ring-title {
+  color: var(--fg-1);
+  font: var(--t-h2);
+}
+
+.ring-meta {
+  font: var(--t-body-sm);
+  color: var(--fg-2);
+}

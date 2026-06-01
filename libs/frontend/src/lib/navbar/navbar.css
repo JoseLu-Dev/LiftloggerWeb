@@ -1,0 +1,40 @@
+.m-tabbar {
+  display: flex;
+  background: var(--bg-1);
+  border-top: 1px solid var(--line);
+  padding: 6px 0 8px;
+}
+
+.m-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 0 6px;
+  background: transparent;
+  border: 0;
+  color: var(--fg-3);
+  cursor: pointer;
+  border-radius: var(--r-pill);
+  font: var(--t-caption);
+  letter-spacing: var(--tracking-caption);
+  text-transform: uppercase;
+  font-size: 9px;
+  transition:
+    background var(--dur-micro) var(--ease),
+    color var(--dur-micro) var(--ease);
+}
+
+.m-tab.active {
+  background: var(--bg-3);
+  color: var(--fg-1);
+}
+
+.m-tab.active .tab-icon { color: var(--blue-400); }
+
+.tab-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}

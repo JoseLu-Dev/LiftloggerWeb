@@ -1,0 +1,118 @@
+.nav {
+  width: 220px;
+  background: var(--bg-1);
+  border-radius: var(--r-lg);
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: var(--shadow-sm);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--r-md);
+  color: var(--fg-2);
+  font: var(--t-body);
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  text-align: left;
+  transition:
+    background var(--dur-micro) var(--ease),
+    color var(--dur-micro) var(--ease);
+}
+
+.item:hover { background: var(--bg-2); color: var(--fg-1); }
+
+.item.active {
+  background: var(--bg-3);
+  color: var(--fg-1);
+  box-shadow: inset 0 0 0 1px rgba(61, 134, 255, 0.25), 0 0 24px rgba(61, 134, 255, 0.12);
+}
+
+.item.active .icon { color: var(--blue-400); }
+
+.icon {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  color: var(--fg-3);
+  flex-shrink: 0;
+}
+
+.count {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-3);
+}
+
+.item.active .count { color: var(--blue-300); }
+
+.sep {
+  height: 1px;
+  background: var(--line);
+  margin: 8px 0;
+}
+
+.chevron {
+  margin-left: auto;
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  color: var(--fg-3);
+  transition: transform var(--dur-panel) var(--ease);
+}
+
+.parent.open .chevron { transform: rotate(90deg); }
+
+.subnav {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--dur-panel) var(--ease);
+}
+
+.subnav.open { max-height: 300px; }
+
+.subnav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 2px 0 2px 22px;
+  padding-left: 12px;
+  border-left: 1px solid var(--line);
+}
+
+.subitem {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: var(--r-md);
+  color: var(--fg-3);
+  font: var(--t-body);
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  text-align: left;
+  transition:
+    background var(--dur-micro) var(--ease),
+    color var(--dur-micro) var(--ease);
+}
+
+.subitem:hover { background: var(--bg-2); color: var(--fg-1); }
+.subitem.active { color: var(--fg-1); background: var(--bg-2); }

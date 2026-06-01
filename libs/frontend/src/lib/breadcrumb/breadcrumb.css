@@ -1,0 +1,41 @@
+.crumbs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: var(--t-body-sm);
+  font-weight: 500;
+  color: var(--fg-3);
+  text-decoration: none;
+  padding: 4px 6px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition:
+    color var(--dur-micro) var(--ease),
+    background var(--dur-micro) var(--ease);
+}
+
+.crumb:hover { color: var(--fg-1); background: var(--bg-2); }
+
+.crumb.current {
+  color: var(--fg-1);
+  cursor: default;
+}
+
+.crumb.current:hover { background: none; }
+
+.crumb-sep {
+  width: 14px;
+  height: 14px;
+  stroke: var(--line-strong);
+  stroke-width: 1.6;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}

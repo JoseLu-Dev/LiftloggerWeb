@@ -1,0 +1,70 @@
+.pg {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  min-width: 36px;
+  padding: 0 4px;
+  border: none;
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--fg-2);
+  font: var(--t-body-sm);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-body);
+  cursor: pointer;
+  transition:
+    background var(--dur-micro) var(--ease),
+    color var(--dur-micro) var(--ease),
+    box-shadow var(--dur-micro) var(--ease);
+}
+
+.pg-btn:hover:not(:disabled):not(.pg-current) {
+  background: var(--bg-2);
+  color: var(--fg-1);
+}
+
+.pg-btn:active:not(:disabled):not(.pg-current) {
+  background: var(--bg-3);
+}
+
+.pg-btn:disabled {
+  color: var(--fg-3);
+  cursor: default;
+}
+
+.pg-btn.pg-current {
+  background: var(--blue-500);
+  color: #fff;
+  box-shadow: var(--glow-blue);
+  cursor: default;
+}
+
+.pg-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pg-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  min-width: 36px;
+  color: var(--fg-3);
+  font: var(--t-body-sm);
+  letter-spacing: 0.06em;
+  user-select: none;
+}
