@@ -1,0 +1,47 @@
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px 5px 9px;
+  border-radius: var(--r-pill);
+  font: var(--t-caption);
+  letter-spacing: var(--tracking-caption);
+  text-transform: uppercase;
+}
+
+.pill .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.pill.brand   { background: rgba(61, 134, 255, 0.15); color: var(--blue-300); }
+.pill.success { background: var(--success-soft); color: var(--success); }
+.pill.warning { background: var(--warning-soft); color: var(--warning); }
+.pill.danger  { background: var(--danger-soft);  color: var(--danger); }
+.pill.neutral { background: var(--bg-2); color: var(--fg-2); }
+.pill.live {
+  background: rgba(61, 134, 255, 0.18);
+  color: var(--blue-300);
+  box-shadow: var(--glow-blue);
+}
+.pill.live .dot {
+  background: var(--blue-400);
+  box-shadow: 0 0 8px var(--blue-400);
+}
+
+.pr-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  background: linear-gradient(180deg, var(--blue-500), var(--blue-600));
+  color: #fff;
+  font: var(--t-caption);
+  letter-spacing: var(--tracking-caption);
+  text-transform: uppercase;
+  box-shadow: var(--glow-blue);
+}

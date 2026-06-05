@@ -1,0 +1,53 @@
+.card {
+  background: var(--bg-1);
+  border-radius: var(--r-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-sm), var(--shadow-inset-top);
+  transition:
+    background var(--dur-micro) var(--ease),
+    box-shadow var(--dur-micro) var(--ease);
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card.hover {
+  background: var(--bg-2);
+  box-shadow: var(--shadow-md), var(--shadow-inset-top);
+}
+
+.card.selected {
+  background: var(--bg-2);
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(61, 134, 255, 0.4);
+}
+
+.eyebrow {
+  font: var(--t-caption);
+  letter-spacing: var(--tracking-caption);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.heading {
+  font: var(--t-h2);
+  letter-spacing: var(--tracking-h2);
+  color: var(--fg-1);
+}
+
+.stat {
+  font: var(--t-stat-lg);
+  letter-spacing: var(--tracking-mono);
+  color: var(--fg-1);
+  font-variant-numeric: tabular-nums;
+}
+
+.unit { color: var(--fg-3); }
+
+.label {
+  font: var(--t-caption);
+  letter-spacing: var(--tracking-caption);
+  text-transform: uppercase;
+  color: var(--fg-3);
+  margin-top: auto;
+}

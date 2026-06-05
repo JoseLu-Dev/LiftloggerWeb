@@ -1,0 +1,117 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 7, 11, 0.76);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-panel) var(--ease);
+}
+
+.overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dialog {
+  background: var(--bg-1);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg), var(--shadow-inset-top);
+  width: 420px;
+  max-width: calc(100vw - 32px);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transform: translateY(8px);
+  transition: transform var(--dur-panel) var(--ease);
+}
+
+.overlay.open .dialog {
+  transform: translateY(0);
+}
+
+.dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dialog-title {
+  font: var(--t-h2);
+  letter-spacing: var(--tracking-h2);
+  color: var(--fg-1);
+}
+
+.close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-sm);
+  background: transparent;
+  border: none;
+  color: var(--fg-2);
+  cursor: pointer;
+  transition: background var(--dur-micro) var(--ease), color var(--dur-micro) var(--ease);
+}
+
+.close-btn:hover { background: var(--bg-2); color: var(--fg-1); }
+
+.close-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dialog-body {
+  font: var(--t-body);
+  color: var(--fg-2);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: var(--r-md);
+  font: var(--t-body);
+  font-weight: 500;
+  letter-spacing: var(--tracking-body);
+  cursor: pointer;
+  transition:
+    background var(--dur-micro) var(--ease),
+    box-shadow var(--dur-micro) var(--ease),
+    transform var(--dur-micro) var(--ease);
+}
+
+.btn-primary { background: var(--blue-500); color: #fff; box-shadow: var(--glow-blue); }
+.btn-primary:hover { background: var(--blue-400); }
+.btn-secondary { background: var(--bg-2); color: var(--fg-1); box-shadow: var(--shadow-sm); }
+.btn-secondary:hover { background: var(--bg-3); }
+.btn-danger-fill { background: var(--danger); color: #fff; }
+.btn-danger-fill:hover { background: #f07068; }
+.btn-warning-fill { background: var(--warning); color: #07090d; }
+.btn-warning-fill:hover { background: #e8b570; }
