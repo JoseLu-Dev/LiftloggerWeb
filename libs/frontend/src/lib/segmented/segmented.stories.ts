@@ -1,5 +1,26 @@
 import type { Meta, StoryObj } from '@storybook/angular';
+import { Component } from '@angular/core';
 import { SegmentedComponent } from './segmented';
+
+@Component({
+  selector: 'ds-tabs-demo',
+  standalone: true,
+  imports: [SegmentedComponent],
+  template: `
+    <div style="width:420px;padding:24px;background:var(--bg-0)">
+      <ds-segmented
+        mode="tabs"
+        [options]="options"
+        [activeIndex]="active"
+        (activeIndexChange)="active = $event"
+      ></ds-segmented>
+    </div>
+  `,
+})
+class TabsDemoComponent {
+  options = ['Overview', 'Sessions', 'Program', 'Notes'];
+  active = 0;
+}
 
 const meta: Meta<SegmentedComponent> = {
   title: 'Design System/Segmented',
@@ -29,11 +50,9 @@ export const Brand: Story = {
 };
 
 export const Tabs: Story = {
-  args: { mode: 'tabs', options: ['Overview', 'Sessions', 'Program', 'Notes'], activeIndex: 0 },
-  decorators: [
-    (story) => ({
-      template: `<div style="width:400px;padding:24px;background:var(--bg-0)">${story().template ?? ''}</div>`,
-      moduleMetadata: story().moduleMetadata,
-    }),
-  ],
+  name: 'Tabs (underline)',
+  render: () => ({
+    template: `<ds-tabs-demo></ds-tabs-demo>`,
+    moduleMetadata: { imports: [TabsDemoComponent] },
+  }),
 };

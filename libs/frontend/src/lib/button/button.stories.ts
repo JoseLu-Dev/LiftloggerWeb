@@ -15,6 +15,7 @@ const meta: Meta<ButtonComponent> = {
     size: { control: 'select', options: ['sm', 'md', 'lg'] },
     label: { control: 'text' },
     disabled: { control: 'boolean' },
+    loading: { control: 'boolean' },
     ariaLabel: { control: 'text', description: 'Accessible label override' },
   },
 };
@@ -52,6 +53,25 @@ export const Large: Story = {
 
 export const Disabled: Story = {
   args: { variant: 'primary', size: 'md', label: 'Unavailable', disabled: true },
+};
+
+export const Loading: Story = {
+  args: { variant: 'primary', size: 'md', label: 'Saving…', loading: true },
+};
+
+export const LoadingVariants: Story = {
+  name: 'Loading — all variants',
+  render: () => ({
+    template: `
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:24px;background:var(--bg-0)">
+        <ds-button variant="primary"   size="md" label="Saving…"     [loading]="true"></ds-button>
+        <ds-button variant="secondary" size="md" label="Uploading…"  [loading]="true"></ds-button>
+        <ds-button variant="ghost"     size="md" label="Processing…" [loading]="true"></ds-button>
+        <ds-button variant="danger"    size="md" label="Deleting…"   [loading]="true"></ds-button>
+      </div>
+    `,
+    moduleMetadata: { imports: [ButtonComponent] },
+  }),
 };
 
 export const AllSizes: Story = {

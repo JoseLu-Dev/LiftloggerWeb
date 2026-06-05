@@ -21,7 +21,7 @@ export type InputType = 'text' | 'numeric' | 'textarea';
             [class.error]="state === 'error'"
             [placeholder]="placeholder"
             [disabled]="disabled"
-            [value]="value"
+            [value]="_value"
             (input)="onInput($event)"
             (blur)="onTouched()"
             [attr.aria-invalid]="state === 'error'"
@@ -34,10 +34,12 @@ export type InputType = 'text' | 'numeric' | 'textarea';
             [type]="type === 'numeric' ? 'text' : 'text'"
             [placeholder]="placeholder"
             [disabled]="disabled"
-            [value]="value"
+            [value]="_value"
             (input)="onInput($event)"
             (blur)="onTouched()"
             [attr.inputmode]="type === 'numeric' ? 'decimal' : null"
+            [attr.min]="min ?? null"
+            [attr.max]="max ?? null"
             [attr.aria-invalid]="state === 'error'"
             [attr.aria-describedby]="helpText ? fieldId + '-help' : null"
           />
@@ -71,9 +73,13 @@ export class InputComponent implements ControlValueAccessor {
   @Input() helpText = '';
   @Input() disabled = false;
   @Input() rows = 3;
+  @Input() min?: number;
+  @Input() max?: number;
+  @Input() set value(v: string) { this._value = v ?? ''; }
+  get value(): string { return this._value; }
 
   readonly fieldId = `ds-input-${Math.random().toString(36).slice(2, 7)}`;
-  value = '';
+  _value = '';
 
   private onChange = (_: string) => {};
   onTouched = () => {};
@@ -90,11 +96,11 @@ export class InputComponent implements ControlValueAccessor {
 
   onInput(event: Event): void {
     const v = (event.target as HTMLInputElement).value;
-    this.value = v;
+    this._value = v;
     this.onChange(v);
   }
 
-  writeValue(value: string): void { this.value = value ?? ''; }
+  writeValue(value: string): void { this._value = value ?? ''; }
   registerOnChange(fn: (v: string) => void): void { this.onChange = fn; }
   registerOnTouched(fn: () => void): void { this.onTouched = fn; }
   setDisabledState(isDisabled: boolean): void { this.disabled = isDisabled; }
