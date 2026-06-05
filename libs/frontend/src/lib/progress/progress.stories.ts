@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { ProgressComponent } from './progress';
 
 const meta: Meta<ProgressComponent> = {
-  title: 'Design System/Progress',
+  title: 'Components/Progress',
   component: ProgressComponent,
   tags: ['autodocs'],
   parameters: {
@@ -10,19 +10,17 @@ const meta: Meta<ProgressComponent> = {
     a11y: { config: {} },
     backgrounds: { default: 'canvas' },
   },
+  args: {
+    mode: 'linear',
+    value: 64,
+    label: 'Weekly volume',
+  },
   argTypes: {
     mode: { control: 'select', options: ['linear', 'ring'] },
     value: { control: { type: 'range', min: 0, max: 100, step: 1 } },
     label: { control: 'text' },
     meta: { control: 'text' },
   },
-};
-
-export default meta;
-type Story = StoryObj<ProgressComponent>;
-
-export const Linear: Story = {
-  args: { mode: 'linear', value: 64, label: 'Weekly volume' },
   decorators: [
     (story) => ({
       template: `<div style="width:320px;padding:24px;background:var(--bg-0)">${story().template ?? ''}</div>`,
@@ -31,12 +29,18 @@ export const Linear: Story = {
   ],
 };
 
+export default meta;
+type Story = StoryObj<ProgressComponent>;
+
+export const Default: Story = {};
 export const Ring: Story = {
   args: { mode: 'ring', value: 70, label: "Today's session", meta: '14 of 20 sets logged' },
 };
+export const Complete: Story = { args: { value: 100, label: 'Block complete' } };
+export const Empty: Story = { args: { value: 0, label: 'Not started' } };
 
 export const MultipleLinear: Story = {
-  name: 'Multiple linear bars',
+  name: 'Multiple bars',
   render: () => ({
     template: `
       <div style="width:320px;display:flex;flex-direction:column;gap:18px;padding:24px;background:var(--bg-0)">

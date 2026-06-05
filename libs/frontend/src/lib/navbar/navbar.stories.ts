@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { NavbarComponent } from './navbar';
 
 const meta: Meta<NavbarComponent> = {
-  title: 'Design System/Navbar',
+  title: 'Components/Navbar',
   component: NavbarComponent,
   tags: ['autodocs'],
   parameters: {
@@ -10,6 +10,7 @@ const meta: Meta<NavbarComponent> = {
     a11y: { config: {} },
     backgrounds: { default: 'canvas' },
   },
+  args: { activeIndex: 0 },
   argTypes: {
     activeIndex: { control: { type: 'number', min: 0, max: 2 } },
   },
@@ -24,6 +25,6 @@ const meta: Meta<NavbarComponent> = {
 export default meta;
 type Story = StoryObj<NavbarComponent>;
 
-export const Today: Story = { args: { activeIndex: 0 } };
+export const Default: Story = {};
 export const History: Story = { args: { activeIndex: 1 } };
 export const Profile: Story = { args: { activeIndex: 2 } };

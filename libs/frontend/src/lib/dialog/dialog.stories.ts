@@ -2,13 +2,21 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { DialogComponent } from './dialog';
 
 const meta: Meta<DialogComponent> = {
-  title: 'Design System/Dialog',
+  title: 'Components/Dialog',
   component: DialogComponent,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
     a11y: { config: {} },
     backgrounds: { default: 'canvas' },
+  },
+  args: {
+    open: true,
+    title: 'Save program changes?',
+    body: 'You have unsaved changes to Block 3. They will be lost if you navigate away.',
+    confirmLabel: 'Save changes',
+    cancelLabel: 'Discard',
+    variant: 'default',
   },
   argTypes: {
     open: { control: 'boolean' },
@@ -29,16 +37,7 @@ const meta: Meta<DialogComponent> = {
 export default meta;
 type Story = StoryObj<DialogComponent>;
 
-export const Default: Story = {
-  args: {
-    open: true,
-    title: 'Save program changes?',
-    body: 'You have unsaved changes to Block 3. They will be lost if you navigate away.',
-    confirmLabel: 'Save changes',
-    cancelLabel: 'Discard',
-    variant: 'default',
-  },
-};
+export const Default: Story = {};
 
 export const Danger: Story = {
   args: {

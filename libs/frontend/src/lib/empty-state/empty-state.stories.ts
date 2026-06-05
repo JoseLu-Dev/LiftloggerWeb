@@ -2,13 +2,17 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { EmptyStateComponent } from './empty-state';
 
 const meta: Meta<EmptyStateComponent> = {
-  title: 'Design System/EmptyState',
+  title: 'Components/EmptyState',
   component: EmptyStateComponent,
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
     a11y: { config: {} },
     backgrounds: { default: 'canvas' },
+  },
+  args: {
+    heading: 'No sessions yet',
+    body: "They'll show up here as athletes log their training.",
   },
   argTypes: {
     heading: { control: 'text' },
@@ -26,30 +30,8 @@ const meta: Meta<EmptyStateComponent> = {
 export default meta;
 type Story = StoryObj<EmptyStateComponent>;
 
-export const NoSessions: Story = {
-  args: {
-    heading: 'No sessions yet',
-    body: "They'll show up here as athletes log their training.",
-  },
-};
-
-export const NoResults: Story = {
-  args: {
-    heading: 'No athletes match',
-    body: 'Try clearing the filters or adjusting the date range.',
-    ctaLabel: 'Clear filters',
-  },
-};
-
-export const Grid: Story = {
-  name: 'Grid (2 states)',
-  render: () => ({
-    template: `
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:24px;background:var(--bg-0)">
-        <ds-empty-state heading="No sessions yet" body="They'll show up here as athletes log their training."></ds-empty-state>
-        <ds-empty-state heading="No athletes match" body="Try clearing the filters or adjusting the date range." ctaLabel="Clear filters"></ds-empty-state>
-      </div>
-    `,
-    moduleMetadata: { imports: [EmptyStateComponent] },
-  }),
+export const Default: Story = {};
+export const WithCTA: Story = {
+  name: 'With CTA',
+  args: { heading: 'No athletes match', body: 'Try clearing the filters or adjusting the date range.', ctaLabel: 'Clear filters' },
 };

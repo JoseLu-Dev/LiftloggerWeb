@@ -2,13 +2,17 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { PaginationComponent } from './pagination';
 
 const meta: Meta<PaginationComponent> = {
-  title: 'Design System/Pagination',
+  title: 'Components/Pagination',
   component: PaginationComponent,
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
     a11y: { config: {} },
     backgrounds: { default: 'canvas' },
+  },
+  args: {
+    currentPage: 3,
+    totalPages: 10,
   },
   argTypes: {
     currentPage: { control: { type: 'number', min: 1 } },
@@ -25,7 +29,7 @@ const meta: Meta<PaginationComponent> = {
 export default meta;
 type Story = StoryObj<PaginationComponent>;
 
-export const Default: Story = { args: { currentPage: 3, totalPages: 10 } };
-export const FirstPage: Story = { args: { currentPage: 1, totalPages: 10 } };
-export const LastPage: Story = { args: { currentPage: 10, totalPages: 10 } };
+export const Default: Story = {};
+export const FirstPage: Story = { args: { currentPage: 1 } };
+export const LastPage: Story = { args: { currentPage: 10 } };
 export const FewPages: Story = { args: { currentPage: 2, totalPages: 5 } };

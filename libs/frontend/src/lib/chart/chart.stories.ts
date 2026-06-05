@@ -31,7 +31,7 @@ class ChartDemoComponent {
 }
 
 const meta: Meta<ChartComponent> = {
-  title: 'Design System/Chart',
+  title: 'Components/Chart',
   component: ChartComponent,
   tags: ['autodocs'],
   parameters: {

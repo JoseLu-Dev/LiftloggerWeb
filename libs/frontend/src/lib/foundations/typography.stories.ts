@@ -48,7 +48,7 @@ import { Component } from '@angular/core';
 class TypographySpecimenComponent {}
 
 const meta: Meta<TypographySpecimenComponent> = {
-  title: 'Design System/Foundations/Typography',
+  title: 'Foundation/Typography',
   component: TypographySpecimenComponent,
   parameters: { layout: 'centered', backgrounds: { default: 'canvas' } },
 };

@@ -23,13 +23,18 @@ class TabsDemoComponent {
 }
 
 const meta: Meta<SegmentedComponent> = {
-  title: 'Design System/Segmented',
+  title: 'Components/Segmented',
   component: SegmentedComponent,
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
     a11y: { config: {} },
     backgrounds: { default: 'canvas' },
+  },
+  args: {
+    options: ['Day', 'Week', 'Block', 'All time'],
+    activeIndex: 1,
+    mode: 'pill',
   },
   argTypes: {
     mode: { control: 'select', options: ['pill', 'brand', 'tabs'] },
@@ -41,14 +46,8 @@ const meta: Meta<SegmentedComponent> = {
 export default meta;
 type Story = StoryObj<SegmentedComponent>;
 
-export const Pill: Story = {
-  args: { mode: 'pill', options: ['Day', 'Week', 'Block', 'All time'], activeIndex: 1 },
-};
-
-export const Brand: Story = {
-  args: { mode: 'brand', options: ['Coach', 'Athlete'], activeIndex: 1 },
-};
-
+export const Default: Story = {};
+export const Brand: Story = { args: { mode: 'brand', options: ['Coach', 'Athlete'], activeIndex: 0 } };
 export const Tabs: Story = {
   name: 'Tabs (underline)',
   render: () => ({

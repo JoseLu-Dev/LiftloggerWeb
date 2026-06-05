@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { RpeComponent } from './rpe';
 
 const meta: Meta<RpeComponent> = {
-  title: 'Design System/RPE',
+  title: 'Components/RPE',
   component: RpeComponent,
   tags: ['autodocs'],
   parameters: {
@@ -10,6 +10,7 @@ const meta: Meta<RpeComponent> = {
     a11y: { config: {} },
     backgrounds: { default: 'canvas' },
   },
+  args: { initialValue: 7 },
   argTypes: {
     initialValue: {
       control: { type: 'select' },
@@ -27,6 +28,6 @@ const meta: Meta<RpeComponent> = {
 export default meta;
 type Story = StoryObj<RpeComponent>;
 
-export const Default: Story = { args: { initialValue: 7 } };
+export const Default: Story = {};
 export const High: Story = { args: { initialValue: 9 } };
 export const Max: Story = { args: { initialValue: 10 } };

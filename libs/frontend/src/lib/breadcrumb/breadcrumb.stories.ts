@@ -2,13 +2,16 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { BreadcrumbComponent } from './breadcrumb';
 
 const meta: Meta<BreadcrumbComponent> = {
-  title: 'Design System/Breadcrumb',
+  title: 'Components/Breadcrumb',
   component: BreadcrumbComponent,
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
     a11y: { config: {} },
     backgrounds: { default: 'canvas' },
+  },
+  args: {
+    items: [{ label: 'Athletes' }, { label: 'Maya Okafor' }],
   },
   decorators: [
     (story) => ({
@@ -21,16 +24,7 @@ const meta: Meta<BreadcrumbComponent> = {
 export default meta;
 type Story = StoryObj<BreadcrumbComponent>;
 
-export const TwoLevels: Story = {
-  args: { items: [{ label: 'Athletes' }, { label: 'Maya Okafor' }] },
-};
-
+export const Default: Story = {};
 export const ThreeLevels: Story = {
-  args: {
-    items: [
-      { label: 'Athletes' },
-      { label: 'Maya Okafor' },
-      { label: 'Block 3 · Week 2' },
-    ],
-  },
+  args: { items: [{ label: 'Athletes' }, { label: 'Maya Okafor' }, { label: 'Block 3 · Week 2' }] },
 };

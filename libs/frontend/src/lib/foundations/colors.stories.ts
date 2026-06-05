@@ -70,7 +70,7 @@ class ColorPaletteComponent {
 }
 
 const meta: Meta<ColorPaletteComponent> = {
-  title: 'Design System/Foundations/Colors',
+  title: 'Foundation/Colors',
   component: ColorPaletteComponent,
   tags: ['autodocs'],
   parameters: { layout: 'centered', backgrounds: { default: 'canvas' } },

@@ -39,7 +39,7 @@ class SetRowAllDemoComponent {
 }
 
 const meta: Meta<SetRowComponent> = {
-  title: 'Design System/SetRow',
+  title: 'Components/SetRow',
   component: SetRowComponent,
   tags: ['autodocs'],
   parameters: {

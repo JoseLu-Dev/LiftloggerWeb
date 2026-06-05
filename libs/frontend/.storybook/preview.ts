@@ -15,6 +15,12 @@ const preview: Preview = {
         { name: 'accent', value: '#3D86FF' },
       ],
     },
+    options: {
+      storySort: {
+        order: ['Foundation', 'Components', 'Views', '*'],
+        method: 'alphabetical',
+      },
+    },
   },
 };
 
