@@ -45,6 +45,19 @@ class InputStatesDemoComponent {}
 })
 class InputNumericDemoComponent {}
 
+@Component({
+  selector: 'ds-input-maxlength-demo',
+  standalone: true,
+  imports: [InputComponent],
+  template: `
+    <div style="display:flex;flex-direction:column;gap:16px;width:280px;padding:24px;background:var(--bg-0)">
+      <ds-input label="Session title" type="text" value="Upper A" [maxLength]="40"></ds-input>
+      <ds-input label="Notes" type="textarea" placeholder="Session notes…" [rows]="4" [maxLength]="200" value="Great session today. Hit all targets."></ds-input>
+    </div>
+  `,
+})
+class InputMaxLengthDemoComponent {}
+
 const meta: Meta<InputComponent> = {
   title: 'Design System/Input',
   component: InputComponent,
@@ -64,6 +77,7 @@ const meta: Meta<InputComponent> = {
     disabled: { control: 'boolean' },
     min: { control: 'number' },
     max: { control: 'number' },
+    maxLength: { control: 'number' },
     value: { control: 'text' },
   },
   decorators: [
@@ -103,6 +117,14 @@ export const Error: Story = {
 export const MinMax: Story = {
   name: 'Numeric with min / max',
   args: { label: 'Reps', type: 'numeric', min: 1, max: 20, placeholder: '0', helpText: 'Min 1 · Max 20' },
+};
+
+export const WithMaxLength: Story = {
+  name: 'With max length',
+  render: () => ({
+    template: `<ds-input-maxlength-demo></ds-input-maxlength-demo>`,
+    moduleMetadata: { imports: [InputMaxLengthDemoComponent] },
+  }),
 };
 
 export const Textarea: Story = {

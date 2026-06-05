@@ -27,6 +27,7 @@ export type InputType = 'text' | 'numeric' | 'textarea';
             [attr.aria-invalid]="state === 'error'"
             [attr.aria-describedby]="helpText ? fieldId + '-help' : null"
             [attr.rows]="rows"
+            [attr.maxlength]="maxLength ?? null"
           ></textarea>
         } @else {
           <input
@@ -40,6 +41,7 @@ export type InputType = 'text' | 'numeric' | 'textarea';
             [attr.inputmode]="type === 'numeric' ? 'decimal' : null"
             [attr.min]="min ?? null"
             [attr.max]="max ?? null"
+            [attr.maxlength]="maxLength ?? null"
             [attr.aria-invalid]="state === 'error'"
             [attr.aria-describedby]="helpText ? fieldId + '-help' : null"
           />
@@ -48,11 +50,20 @@ export type InputType = 'text' | 'numeric' | 'textarea';
           }
         }
       </div>
-      @if (helpText) {
-        <span [id]="fieldId + '-help'" [class]="'help ' + (state === 'error' ? 'error' : '')">
-          {{ helpText }}
-        </span>
-      }
+      <div class="field-footer">
+        @if (helpText) {
+          <span [id]="fieldId + '-help'" [class]="'help ' + (state === 'error' ? 'error' : '')">
+            {{ helpText }}
+          </span>
+        } @else {
+          <span></span>
+        }
+        @if (maxLength) {
+          <span [class]="'char-count' + (_value.length > maxLength ? ' over' : '')">
+            {{ _value.length }}/{{ maxLength }}
+          </span>
+        }
+      </div>
     </div>
   `,
   styleUrl: './input.css',
@@ -75,6 +86,7 @@ export class InputComponent implements ControlValueAccessor {
   @Input() rows = 3;
   @Input() min?: number;
   @Input() max?: number;
+  @Input() maxLength?: number;
   @Input() set value(v: string) { this._value = v ?? ''; }
   get value(): string { return this._value; }
 

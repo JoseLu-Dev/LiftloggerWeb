@@ -93,6 +93,23 @@
   box-shadow: inset 0 0 0 1px var(--danger);
 }
 
+.field-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.char-count {
+  font: var(--t-caption);
+  letter-spacing: var(--tracking-caption);
+  color: var(--fg-3);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.char-count.over { color: var(--danger); }
+
 .help {
   font: var(--t-caption);
   letter-spacing: var(--tracking-caption);
